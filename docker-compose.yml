@@ -1,0 +1,52 @@
+version: "3.9"
+
+services:
+    database:
+        container_name: ecommerce_database
+        image: bitnami/postgresql:latest
+        environment:
+            - POSTGRESQL_PASSWORD=${DB_PASSWORD}
+            - POSTGRESQL_USERNAME=${DB_USERNAME}
+            - POSTGRESQL_DATABASE=${DB_DATABASE}
+        volumes:
+            - ./zdocker/database/postgresql:/var/lib/postgresql/data
+        restart: always
+        networks:
+            - laravel_ecommerce
+    adminer:
+        container_name: ecommerce_adminer
+        image: adminer
+        restart: always
+        networks:
+            - laravel_ecommerce
+        ports:
+            - "1081:8080"
+    backend:
+        container_name: ecommerce_backend
+        image: bitnami/nginx:latest
+        restart: always
+        privileged: true
+        ports:
+            - "8082:8080"
+        networks:
+            - laravel_ecommerce
+        volumes:
+            - ./zdocker/backend/ecommerce.conf:/opt/bitnami/nginx/conf/server_blocks/ecommerce.conf
+            - ./zdocker/backend/certs:/certs
+            - .:/app
+    backend-fpm:
+        container_name: ecommerce_fpm
+        image: bitnami/php-fpm:latest
+        restart: always
+        volumes:
+            - .:/app
+        networks:
+            - laravel_ecommerce
+
+volumes:
+    postgresql:
+        driver: local
+
+networks:
+    laravel_ecommerce:
+        driver: bridge
