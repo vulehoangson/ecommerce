@@ -3,13 +3,13 @@ version: "3.9"
 services:
     database:
         container_name: ecommerce_database
-        image: bitnami/postgresql:latest
+        image: bitnami/mysql:latest
         environment:
-            - POSTGRESQL_PASSWORD=${DB_PASSWORD}
-            - POSTGRESQL_USERNAME=${DB_USERNAME}
-            - POSTGRESQL_DATABASE=${DB_DATABASE}
+            - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+            - MYSQL_ROOT_USER=${DB_USERNAME}
+            - MYSQL_DATABASE=${DB_DATABASE}
         volumes:
-            - ./zdocker/database/postgresql:/var/lib/postgresql/data
+            - ./zdocker/database/mysql:/bitnami/mysql/data
         restart: always
         networks:
             - laravel_ecommerce
@@ -44,7 +44,7 @@ services:
             - laravel_ecommerce
 
 volumes:
-    postgresql:
+    mysql:
         driver: local
 
 networks:
