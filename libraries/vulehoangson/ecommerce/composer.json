@@ -2,6 +2,7 @@
     "name": "vulehoangson/ecommerce",
     "description": "This is package for developing ecommerce features",
     "type": "library",
+    "version" : "1.0.0",
     "autoload": {
         "psr-4": {
             "Vulehoangson\\Ecommerce\\": "src/"
