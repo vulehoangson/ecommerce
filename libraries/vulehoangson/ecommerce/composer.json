@@ -19,7 +19,9 @@
             "providers": [
                 "Vulehoangson\\Ecommerce\\Providers\\EcommerceServiceProvider"
             ]
-        }
+        },
+        "test" : 1,
+        "test_a" : 2
     },
     "minimum-stability": "dev",
     "require": {}
