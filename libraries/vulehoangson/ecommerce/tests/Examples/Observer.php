@@ -1,5 +1,5 @@
 <?php
-namespace Vulehoangson\Ecommerce\Tests;
+namespace Vulehoangson\Ecommerce\Tests\Examples;
 
 class Observer
 {

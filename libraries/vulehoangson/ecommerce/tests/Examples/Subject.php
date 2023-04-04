@@ -1,5 +1,5 @@
 <?php
-namespace Vulehoangson\Ecommerce\Tests;
+namespace Vulehoangson\Ecommerce\Tests\Examples;
 
 class Subject
 {
@@ -39,5 +39,15 @@ class Subject
     public function doSomething(string $message): void
     {
         $this->notify($message);
+    }
+
+    public function doSomethingBad(int $errorCode, string $errorMessage)
+    {
+        foreach ($this->observers as $observer) {
+            /**
+             * @var Observer $observer
+             */
+            $observer->reportError($errorCode, $errorMessage, $this);
+        }
     }
 }
