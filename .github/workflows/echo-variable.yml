@@ -1,6 +1,9 @@
 name: Context testing
 on: push
-
+env:
+  REPOSITORY: ${{ github.repository }}
+  TRIGGER_ACTOR: ${{ github.triggering_actor }}
+  REPOSITORY_OWNER: ${{ github.repository_owner }}
 jobs:
   dump_contexts_to_log:
     runs-on: ubuntu-latest
@@ -29,3 +32,5 @@ jobs:
         env:
           MATRIX_CONTEXT: ${{ toJson(matrix) }}
         run: echo "$MATRIX_CONTEXT"
+      - name: Dump Env
+        run: echo "${{ toJson(env) }}"
