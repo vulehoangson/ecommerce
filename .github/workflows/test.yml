@@ -1,5 +1,5 @@
 name: test-install-nodeJS
-run-name: {{ github.actor }} dispatched this workflow
+run-name: ${{ github.actor }} dispatched this workflow
 on: [workflow_dispatch]
 jobs:
   check-node-version:
