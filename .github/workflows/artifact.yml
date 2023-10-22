@@ -19,7 +19,7 @@ jobs:
   job_2:
     name: Multiply by 9
     needs: job_1
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Download math result for job 1
         uses: actions/download-artifact@v3
@@ -38,7 +38,7 @@ jobs:
   job_3:
     name: Display results
     needs: job_2
-    runs-on: macOS-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Download math result for job 2
         uses: actions/download-artifact@v3
