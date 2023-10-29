@@ -1,4 +1,5 @@
 name: Deploy Staging
+on: [workflow_dispatch]
 concurrency:
   cancel-in-progress: true
 env:
