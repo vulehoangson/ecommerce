@@ -31,7 +31,7 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          scripts: |
+          script: |
             cd ${{ env.WORK_DIR }}
             mkdir backend_test
             unzip -o backend_test.zip -d backend_test
