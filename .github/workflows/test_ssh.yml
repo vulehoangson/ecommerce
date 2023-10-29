@@ -20,7 +20,7 @@ jobs:
       - name: deploy to staging site
         uses: burnett01/rsync-deployments@5.2.1
         with:
-          path: ./backend.zip
+          path: ./backend_test.zip
           remote_user: ${{ secrets.SSH_USER }}
           remote_host: ${{ secrets.SSH_HOST }}
           remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
