@@ -4,7 +4,7 @@ concurrency:
   group: deploy_staging
   cancel-in-progress: true
 env:
-  WORKDIR: /home/apps.metafox.app
+  WORK_DIR: /home/apps.metafox.app
 jobs:
   deploy_files:
     runs-on: ubuntu-latest
