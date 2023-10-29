@@ -6,7 +6,7 @@ concurrency:
 env:
   WORKDIR: /home/apps.metafox.app
 jobs:
-  deploy files:
+  deploy_files:
     runs-on: ubuntu-latest
     steps:
       - name: checkout source
