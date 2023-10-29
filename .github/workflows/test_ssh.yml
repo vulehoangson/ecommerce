@@ -1,6 +1,7 @@
 name: Deploy Staging
 on: [workflow_dispatch]
 concurrency:
+  group: deploy_staging
   cancel-in-progress: true
 env:
   WORKDIR: /home/apps.metafox.app
